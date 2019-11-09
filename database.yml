@@ -1,9 +1,9 @@
 ---
 development:
-  dialect: postgres
-  database: akor_development
-  user: postgres
-  password: postgres
+  dialect: mysql
+  database: akor
+  user: root
+  password: 199407Fb.
   host: 127.0.0.1
   pool: 5
 

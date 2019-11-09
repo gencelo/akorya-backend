@@ -58,7 +58,14 @@ func App() *buffalo.App {
 		// Remove to disable this.
 		app.Use(popmw.Transaction(models.DB))
 
-		app.GET("/", HomeHandler)
+		app.GET("/list/popular-songs", ListGetPopularSongs)
+		app.GET("/list/popular-singers", ListGetPopularSingers)
+		app.GET("/list/rising-songs", ListGetRisingSongs)
+		app.GET("/list/classic-songs", ListGetClassicSongs)
+		app.GET("/akor/{slug}", SongsResource{}.Show)
+		app.GET("/sanatci/{slug}", SingersResource{}.Show)
+		app.GET("/akor", SongsResource{}.List)
+		app.GET("/suggest/{q}", SearchResource{}.GetSuggestions)
 	}
 
 	return app
